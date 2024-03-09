@@ -1,0 +1,101 @@
+{%extends 'base.html'%}
+
+{%block title%}Welcome To prismPage {%endblock%}
+
+{%block content%}
+
+
+<div class="container-custom">
+    <div class="carousel carousel-slider center bg-primary">
+        <div class="carousel-fixed-item center">
+            
+          <!-- <a class="btn waves-effect white grey-text darken-text-2">button</a> -->
+        </div>
+        {%for p in post%}
+        <div class="carousel-item red white-text" href="#one!">
+          <h2>{{p.title}}</h2>
+          <p class="white-text">This is your first panel</p>
+          <div class="img-container">
+            <img src="/media/{{p.image}}" class="responsive-img" alt="">
+        </div>
+        </div>
+        {%endfor%}
+        
+      </div>
+
+
+
+
+
+
+
+
+    <!-- category carousel -->
+    <div class="owl-carousel">
+        {%for cat in cats%}
+        <div class="card" style="margin-left: 10px;">
+            <div class="img-container">
+                <img src="/media/{{cat.image}}" class="responsive-img" alt="">
+            </div>
+            <div class="card-content">
+                <div class="card-title">
+                    {{cat.title}}
+                </div>
+                <p class="truncate">{{cat.description}}</p>
+
+                {%if user.is_authenticated%}
+                <div class="container center-align mt20">
+                    <a href="/category/{{cat.url}}" class="btn bg-primary">View</a>
+                </div>
+                {%else%}
+                <div class="container center-align mt20">
+                    <a href="{%url 'user_login'%}" class="btn bg-primary">View</a>
+                </div>
+                
+                {%endif%}
+            </div>
+        </div>
+
+        {%endfor%}
+
+   
+    </div>
+    <!-- {%for cat in cats%}
+    {{cat.title}}
+ {%endfor%}
+     -->
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            {%for p in post%}
+            <div class="row">
+                <div class="col s12 m8">
+            {{p.content |truncatewords:80| safe}}
+
+            {%if user.is_authenticated%}
+            <div class="mt20">
+                <a href="/blog/{{p.url}}" class="btn bg-primary" >Read More ...</a>
+            </div>
+            {%else%}
+            <div class="mt20">
+                <a href="{%url 'user_login'%}" class="btn bg-primary" >Read More ...</a>
+            </div>
+
+            {%endif%}
+        </div>
+
+
+<div class="col s12 m4">
+    <img src="/media/{{p.image}}" class="responsive-img" style="margin-top: 40px;" alt="">
+</div>
+
+    </div>
+            {%endfor%}
+
+           
+        </div>
+    </div>
+</div>
+{%endblock%}

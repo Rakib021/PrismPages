@@ -1,0 +1,42 @@
+
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+
+  <!-- {%for cat in cats%}
+    <li><a href="/category/{{cats.url}}">{{cat.title}}</a></li>
+
+    {%endfor%} -->
+    
+  </ul>
+  <nav class="bg-primary" style="margin-bottom:5px ;">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="" class="brand-logo">PrismPages</a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+              {% if user.is_superuser %}
+              <li><a href="/admin">Admin</a></li>
+              {%endif%}
+
+              <!-- Dropdown Trigger -->
+              <!-- {%if user.is_authenticated%}
+              <li><a class="dropdown-trigger" href="/category/{{cats.url}}" data-target="dropdown1">Category<i class="material-icons right">arrow_drop_down</i></a></li>
+              {%endif%} -->
+              {% if user.is_authenticated %}
+                                    <li>
+                                     <a  href="{% url 'user_logout' %}">Logout</a>
+                                    </li>
+                                {% else %}
+                                    <li >
+                                        <a   href="{% url 'user_login' %}">Login</a>
+                                    </li>
+                                    <li  >
+                                       <a   href="{% url 'register' %}">Register</span> </a>
+                                    </li>
+                                {% endif %}
+         
+            </ul>
+          </div>
+    </div>
+  </nav>
+         
