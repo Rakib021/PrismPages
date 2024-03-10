@@ -7,3 +7,4 @@ django-material-admin==1.8.6
 django-tinymce==3.6.1
 pillow==10.2.0
 sqlparse==0.4.4
+gunicorn
