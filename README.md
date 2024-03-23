@@ -1,6 +1,7 @@
 # PrismPages
 ##Live : https://prismpages-blog-80mk.onrender.com/
-**PrismPages - Blogging Application**
+
+#PrismPages - Blogging Application
 
 Welcome to PrismPages, a dynamic and feature-rich blogging application designed to provide users with a seamless and visually appealing experience. Below is an overview of its features and the technologies employed in its development.
 
